@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23.04.06_form.html</title>
+    <style>
+        h1{
+            background-color: gray;
+            text-align: center;
+        }
+        .container{
+            width: 768px;
+            /* 위, 아래 마진은 0 좌,우 마진은 auto */
+            margin: 0 auto;
+            font-size: 20px;
+        }
+        textarea{            
+            width: 100%;
+            height: 550px;
+            font-size: 20px; 
+        }       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+        <h1>병영 상담 일지</h1>
+        <form action="signup.jsp">
+            <label for="date">상담일자</label>
+            <input type="text" id="date" name="date">
+            <label for="arm of service">병과</label>
+            <select name="arm of service" id="arm of service">
+                <option value="arm of service">선택</option>
+                <option value="arm of service">육군</option>
+                <option value="arm of service">공군</option>
+                <option value="arm of service">해병대</option>
+                <option value="arm of service">특수전사령부</option>
+            </select>                                
+            <label for="class">계급</label>
+            <!-- option에 value가 없으면 innerText가 전송된다 -->
+            <select name="class" id="class">
+                <optgroup label="계급">
+                    <option>병장</option>
+                    <option>상병</option>
+                    <option>일병</option>
+                    <option>이병</option>
+                    <option>훈련병</option>
+                </optgroup>                
+            </select>
+            <label for="legend">성별</label>
+            <select name="legend" id="legend">
+                <optgroup legend="성별">
+                    <option>남자</option>
+                    <option>여자</option>               
+                </optgroup>
+            </select>            
+            <fieldset>
+                <legend>취미</legend>
+                <label>
+                    <input type="checkbox" name="hobby" value="soccer"> 축구
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="baking"> 베이킹
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="piano"> 피아노
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="golf"> 골프
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="drive"> 드라이브
+                </label>
+            </fieldset>
+           
+            <br>
+            <label for="comment">상담병에게 전하고 싶은 말</label>
+            <br>
+            <textarea name="comment" id="comment"></textarea>
+        </form>
+        </fieldset>
+    </div>
+</body>
+</html>
