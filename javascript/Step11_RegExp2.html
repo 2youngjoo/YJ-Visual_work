@@ -20,8 +20,11 @@
             // 만족하지 않으면 "Fail"을 출력해 보기
 
             // 검증 할 정규 표현식 객체를 만들어서
-            const reg =/^[a-zA-Z0-9]+$/;
-            // const reg=/^]a-zA-Z0-9]+$/;
+            // 밑에 두개의 표현식은 같은 것
+            // const reg =/^[a-zA-Z0-9]+$/;
+            // const reg=/^[\w]+$/;
+            // 문자열로 정규 표현식을 작성할 때 \를 넣고 싶으면 (\ 하나당 2개씩)
+            const reg=new RegExp("^[\\w]+$");
 
             // 매칭 여부를 알아낸다.
             const isPass = reg.test(msg);
