@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step04_Cube.html</title>
+    <title>Step04_Cube2.html</title>
     <style>
        .wrapper{
             perspective: 500px;
@@ -16,6 +16,7 @@
             transform-style: preserve-3d;
             transform-origin: 50% 50%;
             transform: translateZ(-200px);
+            transition: transform 1s ease-out;
         }
         .cube > div{
             border: 1px solid red;
@@ -31,6 +32,7 @@
             font-size: 100px;
             font-weight: bold;
             opacity: 0.5;
+            transition: transform 1s ease-out;
         }
         .cube > div:nth-child(1){
             transform: translateZ(200px);
@@ -50,11 +52,11 @@
         .cube > div:nth-child(6){
             transform: rotateX(270deg) translateZ(200px);
         }             
-        .cube:hover{
-            /* 여기서 translateZ(-200px) = 누적되는 값이 아닌 고정좌표인 절대값이라고 생각하면 된다! */
-            transition: transform 1s ease-in-out;
-            transform: translateZ(-200px) rotateX(45deg) rotateY(45deg);
-        }       
+        .nav{
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }     
     </style>
 </head>
 <body> 
@@ -70,7 +72,25 @@
                 <div>6</div>    
             </div>
         </div>
-    </div>  
+        <div class="nav">
+            <button id="leftBtn">&larr;</button>
+            <button id="rightBtn">&rarr;</button>
+        </div>
+    </div>
+    <script>
+
+        // y 축 기준으로 회전하는 값을 저장할 변수 선언하고 초기값 0 대입
+        let rY=0;
+
+        document.querySelector("#leftBtn").addEventListener("click", ()=>{
+            rY -= 90;
+            document.querySelector(".cube").style.transform = "translateZ(-200px) rotateY("+rY+"deg)";
+        });
+        document.querySelector("#rightBtn").addEventListener("click", ()=>{
+            rY += 90;
+            document.querySelector(".cube").style.transform = `translateZ(-200px) rotateY(${rY}deg)`;
+        });
+    </script>  
 </body>
 </html>
 
